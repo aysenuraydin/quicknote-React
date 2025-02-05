@@ -17,6 +17,7 @@ export const AppRouter = ({ notes, deleteNote, clearAll, editNote, addNote, clea
                     notes={notes} 
                     deleteNote={deleteNote} 
                     clearAll={clearAll} 
+                    clearNote={clearNote} 
                     editNote={editNote} 
                   />
         },
