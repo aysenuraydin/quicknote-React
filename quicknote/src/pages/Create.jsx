@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export const Create =({dispatch, note})=> {
-  const {id: noteId, title, content} = note;
+  const {id: noteId = 0, title, content} = note;
   const navigate = useNavigate();
   const titleInput = useRef(null);
 

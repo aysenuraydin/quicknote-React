@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export const Note = ({ note, dispatch }) => {
-  const { id, title, content } = note;
+  const { id = 0, title, content } = note;
   const [value, setValue] = useState(false);
   const navigate = useNavigate();
 
@@ -39,13 +41,13 @@ export const Note = ({ note, dispatch }) => {
             payload: note 
           })
         }}>
-          Delete
+          Delete <FontAwesomeIcon icon={faTrash} className='ml-2'/>
         </button>
         <button 
         type="button" 
         className='border rounded-xl p-1 cursor-pointer bg-gray-600 text-white px-4 hover:bg-gray-400 hover:scale-105 text-sm'
         onClick={edit}>
-          Edit
+          Edit <FontAwesomeIcon icon={faPenToSquare} className='ml-2'/>
         </button>
       </div>
     </div>
