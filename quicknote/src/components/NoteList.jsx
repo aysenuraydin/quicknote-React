@@ -12,7 +12,7 @@ export const NoteList = ({notes, dispatch}) => {
         />
       ))}
       {notes.length === 0 && 
-        <div className='text-gray-400 text-center p-5 mt-5 bg-white rounded-lg shadow-lg'>
+        <div className='text-gray-400 text-center p-5 mt-5'>
           No Notes Available !
         </div>
       }

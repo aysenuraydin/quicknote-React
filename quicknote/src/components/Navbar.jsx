@@ -1,11 +1,16 @@
 import React from 'react';
 import {  NavLink,Link } from 'react-router-dom';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 
 export const Navbar = ({color, title, bgcolor}) =>{
   return(
     <nav style={{color: color, backgroundColor: bgcolor}}
     className='flex justify-between px-10 p-4 border'>
-      <Link to="/" className='tracking-widest'>{title.toUpperCase()}</Link>
+      <Link to="/" className='tracking-widest'>
+        <FontAwesomeIcon icon={faPenToSquare} className='mr-2'/>
+        {title.toUpperCase()}
+      </Link>
       <ul className='flex gap-x-5'>
         <li>
         <NavLink to="/"

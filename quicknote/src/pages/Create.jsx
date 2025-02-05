@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export const Create =({dispatch, note})=> {
-  const {id: noteId, title, content} = note;
+  const {id: noteId = 0, title, content} = note;
   const navigate = useNavigate();
+  const titleInput = useRef(null);
 
   const add = (e) => {
     e.preventDefault();
@@ -33,6 +34,7 @@ export const Create =({dispatch, note})=> {
     }
     e.currentTarget.form.reset();
   }
+  useEffect(() => {  titleInput.current.focus() },[])
 
   return(
     <form className='mx-10' onSubmit={add} key={note?.id ?? 0}>
@@ -40,6 +42,7 @@ export const Create =({dispatch, note})=> {
         <label htmlFor="title" className='w-32'>Title :</label>
         <input type="text" name="title" id="title"
         className='bg-white w-full rounded-lg p-1 border border-gray-300' 
+        ref={titleInput}
         defaultValue={title}/>
       </div>
       <div className='flex mt-3'>
