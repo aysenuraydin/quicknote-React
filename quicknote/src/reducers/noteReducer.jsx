@@ -1,3 +1,4 @@
+
 export const noteReducer = (state, action) => {
     switch (action.type) {
         case "CLEAR_NOTES":
@@ -13,6 +14,7 @@ export const noteReducer = (state, action) => {
                 ],
                 note: {}
             };
+
         case "EDIT_NOTE":
             return {
                 ...state,

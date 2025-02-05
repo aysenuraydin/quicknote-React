@@ -1,9 +1,10 @@
+
 import React,{ useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { NoteList } from '../components/NoteList';
     
 export const List = ({ notes, dispatch  }) => {
-   const navigate = useNavigate();
+  const navigate = useNavigate();
   useEffect(() => {
     navigate("/"); 
   }, [notes]); 

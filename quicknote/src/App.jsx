@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { AppRouter } from './routers/AppRouter';
 import { useEffect, useReducer } from "react";
@@ -27,6 +28,7 @@ const App = () => {
   useEffect(() => {
       localStorage.setItem("notes", JSON.stringify(state.notes));
   }, [state.notes]);
+
 
   return (
     <AppRouter
