@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export const Note = ({ note, deleteNote, editNote, clearNote }) => {
+export const Note = ({ note, dispatch }) => {
   const { id, title, content } = note;
   const [value, setValue] = useState(false);
   const navigate = useNavigate();
 
   const edit = () => {
-    editNote(note); 
+    dispatch({ 
+      type: "GET_NOTE", 
+      payload: note 
+    })
     setValue(!value); 
   };
 
@@ -18,7 +21,7 @@ export const Note = ({ note, deleteNote, editNote, clearNote }) => {
   }, [value]); 
 
   useEffect(() => {
-    clearNote();
+    dispatch({type: "CLEAR_NOTE"});
   }, []); 
   
   return(
@@ -30,7 +33,12 @@ export const Note = ({ note, deleteNote, editNote, clearNote }) => {
       <div className='flex flex-col my-auto gap-2'>
         <button type="button" 
         className='border rounded-xl p-1 cursor-pointer bg-gray-600 text-white px-4 hover:bg-gray-400 hover:scale-105 text-sm'
-        onClick={()=> deleteNote(note)}>
+        onClick={()=> {
+          dispatch({ 
+            type: "DELETE_NOTE", 
+            payload: note 
+          })
+        }}>
           Delete
         </button>
         <button 
