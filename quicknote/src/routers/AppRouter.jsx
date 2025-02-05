@@ -4,7 +4,7 @@ import { Create } from '../pages/Create';
 import { List } from '../pages/List';
 import { MainLayout } from '../layouts/MainLayout';
 
-export const AppRouter = ({ notes, deleteNote, clearAll, editNote, addNote, clearNote, note }) => {
+export const AppRouter = ({ notes, note, dispatch }) => {
   const router = createBrowserRouter([
     {
       path: '/',
@@ -15,17 +15,13 @@ export const AppRouter = ({ notes, deleteNote, clearAll, editNote, addNote, clea
           element: <List 
                     // key={notes.length} 
                     notes={notes} 
-                    deleteNote={deleteNote} 
-                    clearAll={clearAll} 
-                    clearNote={clearNote} 
-                    editNote={editNote} 
+                    dispatch={ dispatch }
                   />
         },
         {
           path: "/create",
           element: <Create 
-                    addNote={addNote} 
-                    clearNote={clearNote} 
+                    dispatch={ dispatch }
                     note={note} 
                   />
         }

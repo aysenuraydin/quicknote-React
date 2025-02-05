@@ -1,26 +1,41 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export const Create =({addNote, clearNote, note})=> {
+export const Create =({dispatch, note})=> {
   const {id: noteId, title, content} = note;
+  const navigate = useNavigate();
+
   const add = (e) => {
     e.preventDefault();
-    // const navigate = useNavigate();
 
     const title = e.target.title.value;
     const content = e.target.content.value;
     if(title && content) {
-      addNote({ title: title,  content: content });
+      if(noteId){
+        dispatch({ 
+          type: "EDIT_NOTE",
+          payload: {id: noteId, title: title,  content: content } 
+        });
+      }else{
+        dispatch({ 
+          type: "ADD_NOTE",
+          payload: { title: title,  content: content } 
+        });
+      }
       e.target.reset();
-      // navigate("/create");
+      navigate("/");
     }
   }
   const clear = (e) => {
-    clearNote();
+    if(noteId){
+      dispatch({type: "CLEAR_NOTE"});
+      navigate("/");
+    }
     e.currentTarget.form.reset();
   }
+
   return(
-    <form className='mx-10' onSubmit={add} key={noteId ?? 0}>
+    <form className='mx-10' onSubmit={add} key={note?.id ?? 0}>
       <div className='flex'>
         <label htmlFor="title" className='w-32'>Title :</label>
         <input type="text" name="title" id="title"
@@ -36,7 +51,9 @@ export const Create =({addNote, clearNote, note})=> {
       <div className="flex ml-[6.3rem] mt-3 gap-x-3">
         <button type="submit" 
         className='bg-white hover:scale-105 cursor-pointer shadow p-1 rounded-lg w-full border border-gray-300 text-sm'>
-          + Add Note
+          {
+            (noteId)? 'Edit Note': '+ Add Note'
+          }
         </button>
         <button type="button" onClick={clear}
         className='bg-white hover:scale-105 cursor-pointer shadow p-1 rounded-lg w-full border border-gray-300 text-sm'>

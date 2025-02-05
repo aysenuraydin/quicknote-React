@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Note } from './Note';
 
-export const NoteList = ({notes,deleteNote, editNote, clearNote}) => { 
+export const NoteList = ({notes, dispatch}) => { 
   return(
     <div className='max-h-[30rem] overflow-scroll px-3'>
-      {notes.map(note => (
+      {notes.map((note,index)=> (
         <Note 
-          key={note.id} 
+          key={index} 
           note={note} 
-          deleteNote={deleteNote} 
-          editNote={editNote} 
-          clearNote={clearNote}
+          dispatch={ dispatch }
         />
       ))}
       {notes.length === 0 && 

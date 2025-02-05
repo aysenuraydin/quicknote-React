@@ -1,13 +1,18 @@
-import React from 'react';
+import React,{ useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { NoteList } from '../components/NoteList';
     
-export const List = ({ notes, deleteNote, editNote, clearAll, clearNote }) => {
+export const List = ({ notes, dispatch  }) => {
+   const navigate = useNavigate();
+  useEffect(() => {
+    navigate("/"); 
+  }, [notes]); 
   return (
     <>
       {notes.length > 0 && (
         <div 
           className='border-b text-gray-400 cursor-pointer text-end pr-5 text-sm' 
-          onClick={clearAll}
+          onClick={()=> dispatch({ type: "CLEAR_NOTES" })}
         >
           <span>X Clear All</span>
         </div> 
@@ -15,9 +20,7 @@ export const List = ({ notes, deleteNote, editNote, clearAll, clearNote }) => {
       
       <NoteList 
         notes={notes} 
-        deleteNote={deleteNote}
-        editNote={editNote}
-        clearNote={clearNote}
+        dispatch={ dispatch }
       />
     </>
   );
