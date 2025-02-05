@@ -10,7 +10,7 @@ export const MainLayout = ({ children }) => {
                 <Header /> 
                 <div className='max-w-[40rem] mx-auto bg-gray-200 p-10 py-16
                 rounded-4xl shadow-xl border border-gray-300'>
-                {<Outlet/>  /* children} */}
+                { <Outlet/>  /* children} */ }
                 </div>
             </div>
         </>
