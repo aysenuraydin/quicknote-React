@@ -1,4 +1,4 @@
-# quicknote
+# Quick Note
 ## React - Tailwind CSS Project
 
 This project is a web application developed using **React** and **Tailwind CSS**. The application leverages modern, efficient technologies to build a responsive and user-friendly interface.
