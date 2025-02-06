@@ -12,6 +12,7 @@ This project utilizes React's functional components and Tailwind CSS for fast, c
 - **React**: A JavaScript library for building user interfaces.
 - **Tailwind CSS**: A highly customizable and modular CSS framework.
 - **React Hooks**: React features for managing state and side effects in functional components.
+- **React Router**: Declarative routing for React applications.
 
 ## React Hooks Used
 
