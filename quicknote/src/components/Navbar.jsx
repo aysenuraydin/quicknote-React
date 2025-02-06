@@ -10,15 +10,6 @@ export const Navbar = ({color, title, bgcolor}) =>{
       </svg>
         {title.toUpperCase()}
       </Link>
-
-
-
-
-
-
-
-
-
       <ul className='flex gap-x-5'>
         <li>
         <NavLink to="/"
