@@ -1,4 +1,5 @@
-# React - Tailwind CSS Project
+# quicknote
+## React - Tailwind CSS Project
 
 This project is a web application developed using **React** and **Tailwind CSS**. The application leverages modern, efficient technologies to build a responsive and user-friendly interface.
 
@@ -76,12 +77,4 @@ Follow these steps to set up the project locally:
 
 
 
-# quicknote-React
-React - Tailwind CSS 
 
-kullanılan hookslar
-use state
-use reducer
-use context
-useefect
-useRef
