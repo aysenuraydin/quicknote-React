@@ -1,4 +1,4 @@
-# Quick Note
+# Quick Note <img src="https://www.svgrepo.com/show/504665/notes.svg" width="40"> 
 ## React - Tailwind CSS Project
 
 This project is a web application developed using **React** and **Tailwind CSS**. The application leverages modern, efficient technologies to build a responsive and user-friendly interface.
